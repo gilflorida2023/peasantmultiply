@@ -28,7 +28,8 @@ char * decToBinary(ulong n) {
     int index=0; 
     memset(bit_array,0,sizeof(bit_array));
     int foundSignificantDigit = 0; //eat leading zeros.
-    for (char i = 31; i >= 0; i--) {
+    uchar num_bits = sizeof(uchar)*8-1;
+    for (char i = num_bits; i >= 0; i--) {
         int bit = (n >> i) & 1;
         if (bit == 1 || foundSignificantDigit) {
             bit_array[index++]=bit+'0';
@@ -50,14 +51,8 @@ void modified_russian_multiply(ulong multiplicand, ulong multiplier) {
         composites_index=0;
     ulong powers2[maxvals],
         composites[maxvals];
-    
     // use binary number to identify factors
-    #if 0
-    char * binary_multiplicand = decToBinary(multiplicand),
-         * bmultiplicand = reverseString(binary_multiplicand);
-    #endif
     char * bmultiplicand = reverseString(decToBinary(multiplicand));
-    
     ulong p2=1,composite=multiplier;
     int index=0;
     for ( ;p2<=multiplicand;p2=p2+p2,composite=composite+composite,index++) {
@@ -67,7 +62,6 @@ void modified_russian_multiply(ulong multiplicand, ulong multiplier) {
             composites[composites_index++]=composite;
         }
         printf("%9lu\t%c\t%9lu\n",p2,c,composite);
-        
     }    
     printf("======================\n");
     ulong total=0L;
@@ -80,7 +74,6 @@ void modified_russian_multiply(ulong multiplicand, ulong multiplier) {
         }
     }
     printf(" = %ld\n",total);
-
     printf("======================\n");
     total=0L;
     for (int i=0;i<composites_index;i++){
@@ -94,6 +87,7 @@ void modified_russian_multiply(ulong multiplicand, ulong multiplier) {
     printf(" = %ld\n",total);
     printf("======================\n");
     printf("CHECK ANSWER %ld x %ld = %ld\n", multiplicand, multiplier, total);
+    free(bmultiplicand);
 }
 
 int main(int argc, char *argv[]){
