@@ -89,7 +89,7 @@ void modified_russian_multiply(ulong multiplicand, ulong multiplier) {
     printf("CHECK ANSWER %ld x %ld = %ld\n", multiplicand, multiplier, total);
     free(bmultiplicand);
 }
-
+#ifdef MAIN
 int main(int argc, char *argv[]){
     if (argc != 3) {
         fprintf(stderr,"Remember: Multiplicand × Multiplier = Product\n");
@@ -116,4 +116,5 @@ int main(int argc, char *argv[]){
          multiplier   = atol(argv[2]);
    modified_russian_multiply(multiplicand, multiplier) ;
    return 0;
-}	
+}
+#endif
