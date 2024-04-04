@@ -32,7 +32,9 @@ CHECK ANSWER 10 x 10 = 100
 ## Compile
 
 ```bash
-    gcc peasant_multiply.c -o peasant_multiply
+    gcc peasant_multiply.c -DMAIN=1 -o peasant_multiply
+    #or 
+    make
 ```
 
 ## Usage
