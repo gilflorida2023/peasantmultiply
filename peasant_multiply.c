@@ -115,4 +115,5 @@ int main(int argc, char *argv[]){
    ulong multiplicand = atol(argv[1]),
          multiplier   = atol(argv[2]);
    modified_russian_multiply(multiplicand, multiplier) ;
+   return 0;
 }	
