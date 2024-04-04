@@ -97,12 +97,19 @@ int main(int argc, char *argv[]){
         fprintf(stderr,"Add the numbers in left column marked with asterisk and it totals the multiplicand.\nDoubling 1, produces the powers of two.\n");
         fprintf(stderr,"Add the numbers in right column marked with asterisk and it totals the product.\nCreated by doubling the multiplier.\n");
         fprintf(stderr,"%s 10 10\n", argv[0]);
-        fprintf(stderr,"Russian peasant multiply: 10 x 10\n");
+        fprintf(stderr,"Modified Russian peasant multiply: 10 x 10\n");
         fprintf(stderr,"        1	 	       10\n");
         fprintf(stderr,"        2	*	       20\n");
         fprintf(stderr,"        4 		       40\n");
         fprintf(stderr,"        8	*	       80\n");
         fprintf(stderr,"\n\n** Limited by 64-bit integers\n");
+        fprintf(stderr,"======================\n");
+        fprintf(stderr,"2 + 8 = 10\n");
+        fprintf(stderr,"======================\n");
+        fprintf(stderr,"NO MULTIPLY ANSWER 20 + 80 = 100\n");
+        fprintf(stderr,"======================\n");
+        fprintf(stderr,"CHECK ANSWER 10 x 10 = 100\n");
+
         return 1;
     }
    ulong multiplicand = atol(argv[1]),
