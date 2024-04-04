@@ -22,7 +22,7 @@ char * reverseString(char *str) {
     return str;
 }
 
-// returns dynamically allocated string containing binary reprsentation of parameter n.
+// returns dynamically allocated string containing binary representation of parameter. aborts if NULL returned from strdup.
 char * decToBinary(ulong n) {
     char bit_array[67];
     int index=0; 
@@ -92,7 +92,7 @@ void modified_russian_multiply(ulong multiplicand, ulong multiplier) {
 
 int main(int argc, char *argv[]){
     if (argc != 3) {
-	    fprintf(stderr,"Remember: Multiplicand × Multiplier = Product\n");
+        fprintf(stderr,"Remember: Multiplicand × Multiplier = Product\n");
         fprintf(stderr,"Multiply using the MODIFIED Russian peasant multipliction.(Only addition needed.)\nUsage: %s multiplicand multiplier\n", argv[0]);
         fprintf(stderr,"Add the numbers in left column marked with asterisk and it totals the multiplicand.\nDoubling 1, produces the powers of two.\n");
         fprintf(stderr,"Add the numbers in right column marked with asterisk and it totals the product.\nCreated by doubling the multiplier.\n");
